@@ -103,6 +103,7 @@ public class DiceWindow extends JFrame {
                         diceLabel1.setIcon(resizeImage("src/dice" + player1Dice[0] + ".JPG"));
                         diceLabel2.setIcon(resizeImage("src/dice" + player1Dice[1] + ".JPG"));
                         titleLabel.setText(logic.getPlayer2Name()+"'s Turn");
+                        rollButton.setText("Roll");
                         state = GameState.PLAYER2_TURN;
                         break;
 
@@ -113,17 +114,18 @@ public class DiceWindow extends JFrame {
 
                         String winner = logic.getWinner();
                         titleLabel.setText(winner);
-                        rollButton.setText("Restart Game");
+                        rollButton.setText("Restart");
                         state = GameState.FINISHED;
                         break;
 
                     case FINISHED:
                         // Reset game
-                        titleLabel.setText(logic.getPlayer1Name() + "'s Turn");
-                        rollButton.setText("Restart");
+
                         diceLabel1.setIcon(resizeImage("src/dice.png")); // Reset dice images
                         diceLabel2.setIcon(resizeImage("src/dice.png"));
                         state = GameState.PLAYER1_TURN;
+                        titleLabel.setText(logic.getPlayer1Name() + "'s Turn");
+                        rollButton.setText("Roll");
                         break;
                 }
             }
