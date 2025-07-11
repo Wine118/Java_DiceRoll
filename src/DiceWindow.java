@@ -102,8 +102,8 @@ public class DiceWindow extends JFrame {
                         int[] player1Dice = logic.rollForPlayer1();
                         diceLabel1.setIcon(resizeImage("src/dice" + player1Dice[0] + ".JPG"));
                         diceLabel2.setIcon(resizeImage("src/dice" + player1Dice[1] + ".JPG"));
-                        titleLabel.setText(logic.getPlayer2Name()+"'s Turn");
-                        rollButton.setText("Roll");
+                        titleLabel.setText(logic.getPlayer1Name()+"'s Result");
+                        rollButton.setText(logic.getPlayer2Name()+"'s Turn");
                         state = GameState.PLAYER2_TURN;
                         break;
 
@@ -113,9 +113,20 @@ public class DiceWindow extends JFrame {
                         diceLabel2.setIcon(resizeImage("src/dice" + player2Dice[1] + ".JPG"));
 
                         String winner = logic.getWinner();
-                        titleLabel.setText(winner);
+                        titleLabel.setText(logic.getPlayer2Name()+"'s Result");
+                        // Delay for 3 seconds then show dialog
+                        Timer timer = new Timer(3000, new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent e) {
+                                JOptionPane.showMessageDialog(null, winner);
+                            }
+                        });
+                        timer.setRepeats(false);
+                        timer.start();
                         rollButton.setText("Restart");
                         state = GameState.FINISHED;
+
+
                         break;
 
                     case FINISHED:
