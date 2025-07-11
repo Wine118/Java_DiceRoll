@@ -50,9 +50,9 @@ public class DiceRollGameLogic {
     // Get the winner
     public String getWinner() {
         if (player1Score > player2Score) {
-            return player1Name + " Win!";
+            return player1Name + " score" + player1Score+ " and "+player2Name + " score " + player2Score+"\n\n"+player1Name+" Win!";
         } else if (player2Score > player1Score) {
-            return player2Name + " Win!";
+            return player1Name + " score" + player1Score+ " and "+player2Name + " score " + player2Score+"\n\n"+player2Name + " Win!";
         } else {
             return "It's a Tie!";
         }

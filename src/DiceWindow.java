@@ -115,7 +115,7 @@ public class DiceWindow extends JFrame {
                         String winner = logic.getWinner();
                         titleLabel.setText(logic.getPlayer2Name()+"'s Result");
                         // Delay for 3 seconds then show dialog
-                        Timer timer = new Timer(3000, new ActionListener() {
+                        Timer timer = new Timer(1500, new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 JOptionPane.showMessageDialog(null, winner);
